@@ -83,6 +83,7 @@ public:
 	float getGesture(Gesture gesture) const;
 	
 	void setRescale(float rescale);
+	void setFrameSkip(int frameskip){frameSkip=frameskip;};
 	void setIterations(int iterations);
 	void setClamp(float clamp);
 	void setTolerance(float tolerance);

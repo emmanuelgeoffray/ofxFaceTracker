@@ -101,8 +101,12 @@ bool ofxFaceTracker::update(Mat image) {
 		} else {
 			wSize = wSize1;
 		}
+    float before = ofGetElapsedTimeMillis();
+    bool trackerResult = tracker.Track(gray, wSize, frameSkip, iterations, clamp, tolerance, fcheck); 
+    float after = ofGetElapsedTimeMillis();
+    //ofLog() << "Track duration: " + ofToString(after-before) + " ms";
 		
-		if(tracker.Track(gray, wSize, frameSkip, iterations, clamp, tolerance, fcheck) == 0) {
+		if(trackerResult == 0) {
 			currentView = tracker._clm.GetViewIdx();
 			failed = false;
 			age++;
